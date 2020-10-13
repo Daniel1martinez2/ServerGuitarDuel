@@ -65,7 +65,7 @@ public class Board {
 		
 	
 				
-				if(app.frameCount%(int)app.random(80,200)==0) {
+				if(app.frameCount%100==0) {
 					
 					notas.add(new Note((int) app.random(0,3),0)); 
 				}
