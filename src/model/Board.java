@@ -22,16 +22,7 @@ public class Board {
 		
 		
 		
-		/*
-		re = new Note(0,0); 
-		re.bringBoardScale(tamX, tamY, x, y); 
-		re.appInstance(app);
-		
-		f.appInstance(app);
-		f = new Note(0,1); 
-		f.bringBoardScale(tamX, tamY, x, y); 
-		
-		*/
+	
 		notas = new ArrayList<Note>(); 
 	
 		
@@ -65,7 +56,7 @@ public class Board {
 		
 	
 				
-				if(app.frameCount%(int)app.random(80,200)==0) {
+				if(app.frameCount%100==0) {
 					
 					notas.add(new Note((int) app.random(0,3),0)); 
 				}

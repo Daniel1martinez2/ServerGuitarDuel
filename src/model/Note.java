@@ -36,6 +36,9 @@ public class Note {
 	public void paintNote() {
 		app.fill(0,255,255);
 		app.rect(aumentoX+(x*tamX), aumentoY+(y*tamY), tamX, tamY);
+		app.fill(0);
+		app.textSize(15);
+		app.text(x+":"+y, aumentoX+(x*tamX)+20, aumentoY+(y*tamY)+20);
 	}
 	
 	
