@@ -22,16 +22,7 @@ public class Board {
 		
 		
 		
-		/*
-		re = new Note(0,0); 
-		re.bringBoardScale(tamX, tamY, x, y); 
-		re.appInstance(app);
-		
-		f.appInstance(app);
-		f = new Note(0,1); 
-		f.bringBoardScale(tamX, tamY, x, y); 
-		
-		*/
+	
 		notas = new ArrayList<Note>(); 
 	
 		
