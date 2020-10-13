@@ -10,8 +10,8 @@ public class Note {
 	public Note(int x, int y) {
 		this.x = x; 
 		this.y = y; 	
-		
 	}
+	
 	//info de su guitarra
 	public void bringBoardScale( int tamX, int tamY, int aumentoX, int aumentoY) {
 		this.tamX = tamX; 

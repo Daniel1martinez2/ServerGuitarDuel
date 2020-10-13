@@ -21,8 +21,8 @@ public class TCPLauncher extends Thread{
 	private TCPLauncher() {
 		
 	}
-	public void suscripcion(ObserverMessage app) {
-		this.app = app; 
+	public void suscripcion(ObserverMessage obs) {
+		this.obs = obs; 
 	}
 	
 	public static TCPLauncher getInstance() {
@@ -34,7 +34,7 @@ public class TCPLauncher extends Thread{
 	}
 	//globales 
 	BufferedReader reader;
-	private ObserverMessage app; 
+	private ObserverMessage obs; 
 	private ServerSocket server;
 	private ArrayList <Session> sessions; 
 	// 
@@ -42,17 +42,19 @@ public class TCPLauncher extends Thread{
 	public void run() {
 		// TODO Auto-generated method stub
 		try {
-			 server = new ServerSocket(6000);
+			 server = new ServerSocket(5000);
 			 sessions = new ArrayList<Session>(); 
 			//esperando
 			 while(true) {
 				System.out.println("server esperando");  
 				Socket socket = server.accept();
 				Session  session = new Session(socket); 
-				session.setObserver(app); 
+				session.setObserver(obs); 
 				session.start();
 				sessions.add(session); 
 				System.out.println("cliente conectado");
+				
+				
 				  //reader
 			 }
 		
