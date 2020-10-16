@@ -40,9 +40,7 @@ public class Session extends Thread{
 		  
 		  while(true) {
 			  String line = reader.readLine(); 
-	
-				 // System.out.println("se ha leido desde el server "+line);
-			 	  app.readmsg(this,line);
+			  app.readmsg(this,line);
 			 	
 			 
 		  }

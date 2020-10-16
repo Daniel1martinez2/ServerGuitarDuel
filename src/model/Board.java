@@ -1,13 +1,17 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import processing.core.PApplet;
+import processing.core.PImage;
+
 
 public class Board {
 	PApplet app; 
-	//Note re; 
-	//Note f; 
+	PImage blueNote;
+	PImage greenNote;
+	PImage orangeNote;
 	ArrayList<Note> notas; 
 	int x,y, filas, columnas, tamX, tamY; 
 	public Board(int x, int y, int filas, int columnas, PApplet app) {
@@ -19,18 +23,13 @@ public class Board {
 		this.x = x; 
 		this.y = y; 
 		this.app = app; 
+		blueNote=app.loadImage("./img/blue_1.png");
+		greenNote=app.loadImage("./img/green_1.png");
+		orangeNote=app.loadImage("./img/orange_1.png");
 		
 		
-		
-	
+
 		notas = new ArrayList<Note>(); 
-	
-		
-	
-	
-		
-		
-		
 			
 	}
 	
@@ -40,30 +39,21 @@ public class Board {
 			for(int o = 0 ; o < filas; o++) {
 				app.fill(255,0,255); 
 				app.rect((i*tamX)+x, (o*tamY)+y, tamX, tamY);
+				
 			}
 		}
-		/*re.paintNote();
-		re.moved(9);
-		
-		f.paintNote();
-		f.moved(5);*/
-		
+	
 		paintMoved(); 
 		
 	}
 	
 	public void crearNotas() {
-		
-	
-				
+			
 				if(app.frameCount%100==0) {
 					
 					notas.add(new Note((int) app.random(0,3),0)); 
 				}
-				
-				
-		
-		
+	
 		
 	}
 	
@@ -77,23 +67,53 @@ public class Board {
 			}
 		}
 		
-		if(notas!=null) {
-			for(int i = 0; i < notas.size();i++ ) {
-				notas.get(i).paintNote();
-				notas.get(i).moved(9);
-				if(notas.get(i).getY()>6) {
-					notas.remove(i); 
+		Iterator<Note> i = notas.iterator();
+		
+		while (i.hasNext()) {
+			  Note n = i.next();
+			  if(n.getX()==0) {
+			    n.setNoteImg(blueNote);
+			  }
+			  if(n.getX()==1) {
+				  n.setNoteImg(greenNote);
+			  }
+			  if(n.getX()==2) {
+				  n.setNoteImg(orangeNote);
+			  }
+				n.paintNote();
+				n.moved(9);
+				if(n.getY()>6) {
+					i.remove(); 
 				}
-				
-				
-		}
+
+//		if(notas!=null) {
+//			for(int i = 0; i < notas.size();i++ ) {
+//				notas.get(i).paintNote();
+//				notas.get(i).moved(9);
+//				if(notas.get(i).getY()>6) {
+//					notas.remove(i); 
+//				}
+//				
+//				
+//		}
 	
 			
 		}
 		
-		//System.out.println(notas.size());
 	
 	}
+
+	public ArrayList<Note> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(ArrayList<Note> notas) {
+		this.notas = notas;
+	}
+	
+	
+	
+	
 
 	
 }
