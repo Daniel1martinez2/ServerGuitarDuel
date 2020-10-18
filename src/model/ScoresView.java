@@ -7,14 +7,16 @@ public class ScoresView extends Pantallas {
 	private PImage fondo;
 	public ScoresView(PApplet app) {
 		super(app);
-		fondo=loadImage("./img/score.png");
+		
 		
 		
 	}
 	
-	
+	public void loadImage() {
+		fondo=app.loadImage("img/score.png");
+	}
 	public void drawIt() {
-		image(fondo,0,0);
+		//app.image(fondo,0,0);
 		
 	}
 

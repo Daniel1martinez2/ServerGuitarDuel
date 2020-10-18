@@ -22,6 +22,7 @@ public class MainView extends PApplet{
 	public void setup() {
 		partida = new PartidaView(this); 
 		scorePantalla = new ScoresView(this); 
+		scorePantalla.loadImage();
 		conexionPantalla = new ConexionView(this); 
 		instruccionesPantalla = new InstruccionesView(this); 
 		partida.load();
