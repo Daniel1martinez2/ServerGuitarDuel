@@ -36,6 +36,7 @@ public class TCPLauncher extends Thread{
 	BufferedReader reader;
 	private ObserverMessage obs; 
 	private ServerSocket server;
+	
 	private ArrayList <Session> sessions; 
 	// 
 	@Override
@@ -43,7 +44,13 @@ public class TCPLauncher extends Thread{
 		// TODO Auto-generated method stub
 		try {
 			 server = new ServerSocket(5000);
+			
+	            
 			 sessions = new ArrayList<Session>(); 
+			 if(sessions.size()>=1) {
+					sessions.get(0).sendMessage("alo");
+					}
+					
 			//esperando
 			 while(true) {
 				System.out.println("server esperando");  
@@ -52,11 +59,14 @@ public class TCPLauncher extends Thread{
 				session.setObserver(obs); 
 				session.start();
 				sessions.add(session); 
-				System.out.println("cliente conectado");
+				System.out.println("cliente conectado"+sessions.size());
 				
 				
-				  //reader
+				
+				
+				//reader
 			 }
+			 
 		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -64,6 +74,13 @@ public class TCPLauncher extends Thread{
 		}
 		
 	}
+	public ArrayList<Session> getSessions() {
+		return sessions;
+	}
+	public void setSessions(ArrayList<Session> sessions) {
+		this.sessions = sessions;
+	}
+
 
 	
 

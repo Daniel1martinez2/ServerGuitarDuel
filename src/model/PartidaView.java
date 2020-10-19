@@ -26,6 +26,7 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 	public void load() {
 		tcp=TCPLauncher.getInstance();
 		tcp.suscripcion(this);
+	
 		fondo = app.loadImage("img/juego.png"); 
 		guitar1 = new Board(152, 0,7,3, app); 
 		guitar2 = new  Board(770,0,7,3, app);
@@ -33,6 +34,7 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 		greenNoteState=false;
 		orangeNoteState=false; 
 		score=0;
+		
 	
 		
 		
@@ -46,6 +48,7 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 		
 		//VerifNota testNOta = new VerifNota(true, false, false); 
 		verificarClicNota1(verifnota); 
+		
 	}
 	
 
@@ -96,4 +99,15 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 	 	  }
 	 	
 	}
+
+	public Jugador getJugador() {
+		return jugador;
+	}
+
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
+	}
+	
+	
+	
 }

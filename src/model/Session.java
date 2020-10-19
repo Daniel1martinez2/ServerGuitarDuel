@@ -17,6 +17,7 @@ public class Session extends Thread{
 	BufferedWriter writer;
 	private ObserverMessage app; 
 	private String id; 
+	
 
 	
 	public Session(Socket socket) {
@@ -27,8 +28,10 @@ public class Session extends Thread{
 	
 	@Override
 	public void run() {
+		 
 		
 		try {
+			socket = new Socket("10.0.2.2", 5000);
 		  InputStream is = socket.getInputStream(); 
 		  InputStreamReader isr = new InputStreamReader(is); 
 		  BufferedReader reader = new BufferedReader(isr);
@@ -37,6 +40,8 @@ public class Session extends Thread{
 		  OutputStream os = socket.getOutputStream(); 
 		  OutputStreamWriter osw = new OutputStreamWriter(os); 
 		  writer = new BufferedWriter(osw); 
+		  
+				
 		  
 		  while(true) {
 			  String line = reader.readLine(); 
