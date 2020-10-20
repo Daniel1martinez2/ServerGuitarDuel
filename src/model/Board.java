@@ -37,7 +37,8 @@ public class Board {
 		
 		for(int i = 0; i<columnas; i++) {
 			for(int o = 0 ; o < filas; o++) {
-				app.fill(255,0,255); 
+				app.noStroke();
+				app.fill(255,0,255,0); 
 				app.rect((i*tamX)+x, (o*tamY)+y, tamX, tamY);
 				
 			}
