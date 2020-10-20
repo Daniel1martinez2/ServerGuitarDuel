@@ -28,7 +28,7 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 		tcp.suscripcion(this);
 	
 		fondo = app.loadImage("img/juego.png"); 
-		guitar1 = new Board(152, 0,7,3, app); 
+		guitar1 = new Board(152,0,7,3, app); 
 		guitar2 = new  Board(770,0,7,3, app);
 		blueNoteState=false;
 		greenNoteState=false;
@@ -48,7 +48,12 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 		
 		//VerifNota testNOta = new VerifNota(true, false, false); 
 		verificarClicNota1(verifnota); 
+	
 		
+	}
+	
+	public void click() {
+		//tcp.getSessions().get(0).sendMessage("alo");
 	}
 	
 
@@ -82,11 +87,11 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 			}
 			}
 		}
-
 	
 	@Override
 	public void readmsg(Session session, String alo) {
-		System.out.println(alo);
+		//System.out.println("Jugador "+session +"dice"+alo);
+		System.out.println(session.getID());
 		  Gson gson=new Gson();
 	 	  Generic generic=gson.fromJson(alo, Generic.class);
 	 	  switch(generic.type) {
@@ -95,6 +100,8 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 	 		  break;
 	 	  case "Note":
 	 		  verifnota=gson.fromJson(alo, VerifNota.class);
+	 		  System.out.println(tcp.getSessions().get(0)+">>>>>>>>>>"); 
+	 		 tcp.getSessions().get(0).sendMessage("P1");
 	 		  break;
 	 	  }
 	 	

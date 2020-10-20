@@ -10,8 +10,6 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.UUID;
 
-import com.google.gson.Gson;
-
 public class Session extends Thread{
 	Socket socket; 
 	BufferedWriter writer;
@@ -31,7 +29,6 @@ public class Session extends Thread{
 		 
 		
 		try {
-			socket = new Socket("10.0.2.2", 5000);
 		  InputStream is = socket.getInputStream(); 
 		  InputStreamReader isr = new InputStreamReader(is); 
 		  BufferedReader reader = new BufferedReader(isr);
@@ -41,9 +38,11 @@ public class Session extends Thread{
 		  OutputStreamWriter osw = new OutputStreamWriter(os); 
 		  writer = new BufferedWriter(osw); 
 		  
+		  
 				
 		  
 		  while(true) {
+			  System.out.println("esperando mensaje......");
 			  String line = reader.readLine(); 
 			  app.readmsg(this,line);
 			 	

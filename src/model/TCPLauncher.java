@@ -48,7 +48,7 @@ public class TCPLauncher extends Thread{
 	            
 			 sessions = new ArrayList<Session>(); 
 			 if(sessions.size()>=1) {
-					sessions.get(0).sendMessage("alo");
+					//sessions.get(0).sendMessage("alo");
 					}
 					
 			//esperando
@@ -60,6 +60,8 @@ public class TCPLauncher extends Thread{
 				session.start();
 				sessions.add(session); 
 				System.out.println("cliente conectado"+sessions.size());
+				//session.sendMessage("");
+				
 				
 				
 				

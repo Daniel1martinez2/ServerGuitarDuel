@@ -61,5 +61,9 @@ public class MainView extends PApplet{
 			
 		}
 	}
+	
+	public void mousePressed() {
+		partida.click();
+	}
 
 }
