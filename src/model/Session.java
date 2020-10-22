@@ -45,6 +45,7 @@ public class Session extends Thread{
 			  System.out.println("esperando mensaje......");
 			  String line = reader.readLine(); 
 			  app.readmsg(this,line);
+			 
 			 	
 			 
 		  }

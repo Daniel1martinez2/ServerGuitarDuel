@@ -2,6 +2,7 @@
 package model;
 
 import processing.core.PApplet;
+import processing.core.PFont;
 
 public class MainView extends PApplet{
 
@@ -10,7 +11,9 @@ public class MainView extends PApplet{
 	ConexionView conexionPantalla;
 	InstruccionesView instruccionesPantalla;
 	StartView startPantalla;
-	private int pantallas;
+	private PFont font;
+
+	public static int pantallita;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PApplet.main("model.MainView");
@@ -20,36 +23,42 @@ public class MainView extends PApplet{
 			size(1200,700); 
 	}
 
+	
+	
 	public void setup() {
+		font=createFont("./img/axis.otf", 20);	
 		partida = new PartidaView(this); 
 		startPantalla = new StartView(this);
 		scorePantalla = new ScoresView(this); 
-		scorePantalla.loadImage();
 		conexionPantalla = new ConexionView(this); 
 		instruccionesPantalla = new InstruccionesView(this); 
-		conexionPantalla.load();
 		partida.load();
-		pantallas=3;
+		pantallita=0;
 
 	}
 
 	public void draw() {
 		background(255,255,0); 
 	
+		textFont(font);
 		
-		switch(pantallas) {
+		
+		
+		switch(pantallita) {
 		case 0:
 			//aqui conexion
 			conexionPantalla.drawIt();
-			pantallas=conexionPantalla.getPantalla();
+			
 			
 			break;
 		case 1:
 			//aqui iria play
 			startPantalla.drawIt();
+			
 			break;
 		case 2:
 			instruccionesPantalla.drawIt();
+			
 			break;
 		case 3:
 			//aqui iria partida
@@ -62,8 +71,11 @@ public class MainView extends PApplet{
 		}
 	}
 	
+	
 	public void mousePressed() {
-		partida.click();
+		System.out.println(mouseX+"posX"+mouseY+"poxY");
+		
 	}
+	
 
 }

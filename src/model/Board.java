@@ -87,16 +87,6 @@ public class Board {
 					i.remove(); 
 				}
 
-//		if(notas!=null) {
-//			for(int i = 0; i < notas.size();i++ ) {
-//				notas.get(i).paintNote();
-//				notas.get(i).moved(9);
-//				if(notas.get(i).getY()>6) {
-//					notas.remove(i); 
-//				}
-//				
-//				
-//		}
 	
 			
 		}

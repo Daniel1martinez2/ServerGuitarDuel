@@ -4,15 +4,30 @@ package model;
 public class VerifNota {
     private boolean isBlue,isGreen,isOrange;
     private String type;
-    public VerifNota(boolean isBlue,boolean isGreen,boolean isOrange){
+    private String id;
+    public VerifNota(boolean isBlue,boolean isGreen,boolean isOrange,String id){
         this.isBlue=isBlue;
         this.isGreen=isGreen;
         this.isOrange=isOrange;
+        this.id=id;
         type="Note";
     }
 
     
-    public String getType() {
+    
+    public String getId() {
+		return id;
+	}
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+
+	public String getType() {
 		return type;
 	}
 

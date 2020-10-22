@@ -44,12 +44,8 @@ public class TCPLauncher extends Thread{
 		// TODO Auto-generated method stub
 		try {
 			 server = new ServerSocket(5000);
-			
-	            
 			 sessions = new ArrayList<Session>(); 
-			 if(sessions.size()>=1) {
-					//sessions.get(0).sendMessage("alo");
-					}
+			
 					
 			//esperando
 			 while(true) {
