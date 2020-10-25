@@ -164,7 +164,7 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 		 		            @Override
 		 		            public void run() {
 		 		            	if(MainView.pantallita==4&&barrera==false) {
-		 		                // your code here
+		 		                
 		 		            	barrera=true;
 		 		            	}
 		 		            }
