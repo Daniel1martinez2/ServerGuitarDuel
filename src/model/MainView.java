@@ -3,6 +3,7 @@ package model;
 
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.sound.SoundFile;
 
 public class MainView extends PApplet{
 
@@ -12,6 +13,7 @@ public class MainView extends PApplet{
 	InstruccionesView instruccionesPantalla;
 	StartView startPantalla;
 	private PFont font;
+	
 
 	public static int pantallita;
 	public static void main(String[] args) {
@@ -26,6 +28,7 @@ public class MainView extends PApplet{
 	
 	
 	public void setup() {
+		
 		font=createFont("./img/axis.otf", 20);	
 		partida = new PartidaView(this); 
 		startPantalla = new StartView(this);
@@ -34,6 +37,7 @@ public class MainView extends PApplet{
 		instruccionesPantalla = new InstruccionesView(this); 
 		partida.load();
 		pantallita=0;
+		
 
 	}
 
@@ -54,6 +58,7 @@ public class MainView extends PApplet{
 		case 1:
 			//aqui iria play
 			startPantalla.drawIt();
+			PartidaView.sound = true; 
 			
 			break;
 		case 2:

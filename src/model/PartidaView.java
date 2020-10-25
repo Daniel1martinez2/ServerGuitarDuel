@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import processing.core.PApplet;
 
 import processing.core.PImage;
+import processing.sound.SoundFile;
 
 public class PartidaView extends Pantallas implements ObserverMessage{
 	
@@ -16,19 +17,21 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 	private VerifNota verifnota1;
 	private VerifNota verifnota2;
 	private TCPLauncher tcp;
+	private SoundFile efe; 
+	public static boolean sound = false; 
 	public static int scoreJugador1,scoreJugador2;
 	private boolean blueNoteState,greenNoteState,orangeNoteState;
 	private boolean barrera;
 	
 	public PartidaView(PApplet app) {
 		super(app);
+		
 	
 	}
 	
 	public void load() {
 		tcp=TCPLauncher.getInstance();
 		tcp.suscripcion(this);
-		
 		
 	
 	
@@ -41,11 +44,30 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 		orangeNoteState=false; 
 		scoreJugador1=0;
 		scoreJugador2=0;
+		efe = new SoundFile(app,"sfx/avril.mp3");
+		sounds(); 
 		
+		
+		
+	}
 	
-		
-		
-		
+	public void sounds() {
+			new Thread(
+					()->{
+						try {
+							Thread.sleep(300);
+							if(MainView.pantallita ==0) {
+								efe.amp((float) 0.1);
+								efe.play();
+							}
+							
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					
+					}
+				).start();
 	}
 	
 	public void drawIt() {
