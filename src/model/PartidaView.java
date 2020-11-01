@@ -56,9 +56,15 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 					()->{
 						try {
 							Thread.sleep(300);
+							efe.amp((float) 0.1);
+							
 							if(MainView.pantallita ==0) {
-								efe.amp((float) 0.1);
-								efe.play();
+								efe.stop();  
+							}
+							if(MainView.pantallita == 1) {
+								
+								
+								
 							}
 							
 						} catch (InterruptedException e) {
@@ -83,9 +89,11 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 		verificarClicNota1(verifnota2, guitar2);
 		if(scoreJugador1==10) {
 			MainView.pantallita=4;
+			efe.stop(); 
 		}
 		if(scoreJugador2==100) {
 			MainView.pantallita=4;
+			efe.stop(); 
 		}
 	
 		
@@ -149,6 +157,7 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 	@Override
 	public void readmsg(Session session, String alo) {
 		
+		
 //		System.out.println(session.getID());
 		  Gson gson=new Gson();
 	 	  Generic generic=gson.fromJson(alo, Generic.class);
@@ -168,17 +177,22 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 	 			System.out.println(generic.id+" "+jugador1.getId());
 	 			 if(MainView.pantallita==1 && verifnota1.isBlue()!=true && verifnota1.isOrange()!=true&&verifnota1.isGreen()!=true) {
 			 		  MainView.pantallita=2;
+			 		
 			 		 
 			 		  return;
 			 	  }
 		 		 if(MainView.pantallita==2 && verifnota1.isBlue()!=true && verifnota1.isOrange()!=true&&verifnota1.isGreen()!=true) {
 			 		  MainView.pantallita=3;
+			 		  efe.play();
+			 		
 			 		  
 			 		  return;
 			 	  }
 		 		 
 		 		 if(MainView.pantallita==3) {
 		 			 barrera=false;
+		 			  
+		 			  
 		 		 }
 		 		 
 		 		new java.util.Timer().schedule( 
@@ -197,6 +211,7 @@ public class PartidaView extends Pantallas implements ObserverMessage{
 		 		
 		 		 if(barrera==true && MainView.pantallita==4 && verifnota1.isBlue()!=true && verifnota1.isOrange()!=true&&verifnota1.isGreen()!=true) {
 			 		  MainView.pantallita=3;
+			 		 efe.play();
 			 		  scoreJugador1=0;
 			 		  scoreJugador2=0;
 			 		  return;
